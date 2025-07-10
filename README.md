@@ -26,12 +26,12 @@ It provides a RESTful API to be consumed by the frontend (React + Vite).
 
 ### 1️⃣ Clone the Repository
 
-git clone https://github.com/your-username/movietv-app.git
-cd movietv-app/server
+`git clone https://github.com/kienth/movietvapi.git`
+`cd movietvapi`
 
 ### 2️⃣ Install Dependencies
 
-npm install
+`npm install`
 
 ### 3️⃣ Configure Environment Variables
 
@@ -41,28 +41,28 @@ PORT=3000
 
 Replace:
 user = your MySQL username
-password = your MySQL password
+password = your MySQL password (leave it blank if none e.g., ...user:@localhost...)
 your_db_name = the database name (make sure it exists)
 
 ### 4️⃣ Generate Prisma Client
 
-npx prisma generate
+`npx prisma generate`
 
 ### 5️⃣ Run Migrations
 
-npx prisma migrate dev --name init
+`npx prisma migrate dev --name init`
 
 This will create the initial database schema in your MySQL database.
 
 ### 6️⃣ Seed the Database
 
-npx prisma db seed
+`npm run seed`
 
 This command runs the seed script and adds initial dummy data to your database.
 
 ### 7️⃣ Start the Development Server
 
-npm run dev
+`npm run dev`
 
 Server will run at:
 🌐 http://localhost:3000
