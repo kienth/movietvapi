@@ -40,7 +40,7 @@ DATABASE_URL="mysql://user:password@localhost:3306/your_db_name"
 PORT=3000
 
 Replace:
-user = your MySQL username
+user = your MySQL username (usually its root)
 password = your MySQL password (leave it blank if none e.g., ...user:@localhost...)
 your_db_name = the database name (make sure it exists)
 
