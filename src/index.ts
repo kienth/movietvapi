@@ -25,7 +25,7 @@ app.use(
 );
 app.use(express.json());
 
-app.use("/api/movietv", movieTvRoutes);
+app.use("/api", movieTvRoutes);
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);

@@ -25,7 +25,7 @@ app.use((0, cors_1.default)({
     credentials: true, // Allow cookies to be sent along with requests
 }));
 app.use(express_1.default.json());
-app.use("/api/movietv", movieTV_routes_1.default);
+app.use("/api", movieTV_routes_1.default);
 app.listen(PORT, () => {
     console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
