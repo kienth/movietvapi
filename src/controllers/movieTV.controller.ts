@@ -4,9 +4,10 @@ import prisma from "../prisma";
 // CREATE
 export const createMovieTV = async (req: Request, res: Response) => {
   try {
-    const newData = await prisma.movieTV.create({ data: req.body });
-    console.log("✅ Created:", newData); // ✅ Should be printed
-    return res.status(201).json(newData);
+    // const newData = await prisma.movieTV.create({ data: req.body });
+    // console.log("✅ Created:", newData); // ✅ Should be printed
+    // return res.status(201).json(newData);
+    return res.status(201).json({ status: 200, message: "success" });
   } catch (error: any) {
     console.error("❌ Error creating movieTV:", error);
     return res.status(400).json({

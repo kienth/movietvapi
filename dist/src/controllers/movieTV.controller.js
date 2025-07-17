@@ -8,9 +8,10 @@ const prisma_1 = __importDefault(require("../prisma"));
 // CREATE
 const createMovieTV = async (req, res) => {
     try {
-        const newData = await prisma_1.default.movieTV.create({ data: req.body });
-        console.log("✅ Created:", newData); // ✅ Should be printed
-        return res.status(201).json(newData);
+        // const newData = await prisma.movieTV.create({ data: req.body });
+        // console.log("✅ Created:", newData); // ✅ Should be printed
+        // return res.status(201).json(newData);
+        return res.status(201).json({ status: 200, message: "success" });
     }
     catch (error) {
         console.error("❌ Error creating movieTV:", error);
