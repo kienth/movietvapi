@@ -9,6 +9,7 @@ const allowedOrigins = [
   "http://localhost:5173",
   "https://movietv.invesystem.xyz",
   "http://movie-tv.invesystem.xyz",
+  "https://movie-tv.invesystem.xyz",
 ];
 
 app.use(
