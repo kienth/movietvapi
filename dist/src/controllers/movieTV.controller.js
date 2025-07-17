@@ -24,29 +24,28 @@ exports.createMovieTV = createMovieTV;
 // READ ALL
 const getAllMovieTV = async (req, res) => {
     try {
-        // // Default pagination values
-        // const page = parseInt(req.query.page as string) || 1;
-        // const limit = parseInt(req.query.limit as string) || 10;
-        // const skip = (page - 1) * limit;
-        // // Fetch paginated data
-        // const [movieTVList, total] = await Promise.all([
-        //   prisma.movieTV.findMany({
-        //     skip,
-        //     take: limit,
-        //     orderBy: { createdAt: "desc" }, // optional sorting
-        //   }),
-        //   prisma.movieTV.count(),
-        // ]);
-        // res.json({
-        //   data: movieTVList,
-        //   meta: {
-        //     page,
-        //     limit,
-        //     total,
-        //     totalPages: Math.ceil(total / limit),
-        //   },
-        // });
-        return res.status(201).json({ status: 200, message: "success" });
+        // Default pagination values
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 10;
+        const skip = (page - 1) * limit;
+        // Fetch paginated data
+        const [movieTVList, total] = await Promise.all([
+            prisma_1.default.movieTV.findMany({
+                skip,
+                take: limit,
+                orderBy: { createdAt: "desc" }, // optional sorting
+            }),
+            prisma_1.default.movieTV.count(),
+        ]);
+        res.json({
+            data: movieTVList,
+            meta: {
+                page,
+                limit,
+                total,
+                totalPages: Math.ceil(total / limit),
+            },
+        });
     }
     catch (error) {
         console.error(error);
