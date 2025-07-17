@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 3000;
 const allowedOrigins = [
   "http://localhost:5173",
   "https://movietv.invesystem.xyz",
+  "http://movie-tv.invesystem.xyz",
 ];
 
 app.use(
