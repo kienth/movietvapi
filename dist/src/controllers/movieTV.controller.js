@@ -37,6 +37,7 @@ const getAllMovieTV = async (req, res) => {
             }),
             prisma_1.default.movieTV.count(),
         ]);
+        console.log(movieTVList);
         res.json({
             data: movieTVList,
             meta: {
@@ -56,6 +57,9 @@ exports.getAllMovieTV = getAllMovieTV;
 // READ ONE
 const getMovieTVById = async (req, res) => {
     const id = parseInt(req.params.id);
+    if (!id || isNaN(Number(id))) {
+        return res.status(400).json({ error: "Invalid or missing ID" });
+    }
     const movieTV = await prisma_1.default.movieTV.findUnique({ where: { id } });
     if (!movieTV)
         return res.status(404).json({ error: "movieTV not found" });
