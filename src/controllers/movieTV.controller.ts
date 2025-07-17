@@ -4,10 +4,9 @@ import prisma from "../prisma";
 // CREATE
 export const createMovieTV = async (req: Request, res: Response) => {
   try {
-    // const newData = await prisma.movieTV.create({ data: req.body });
-    // console.log("✅ Created:", newData); // ✅ Should be printed
-    // return res.status(201).json(newData);
-    return res.status(201).json({ status: 200, message: "success" });
+    const newData = await prisma.movieTV.create({ data: req.body });
+    console.log("✅ Created:", newData); // ✅ Should be printed
+    return res.status(201).json(newData);
   } catch (error: any) {
     console.error("❌ Error creating movieTV:", error);
     return res.status(400).json({
@@ -20,30 +19,31 @@ export const createMovieTV = async (req: Request, res: Response) => {
 // READ ALL
 export const getAllMovieTV = async (req: Request, res: Response) => {
   try {
-    // Default pagination values
-    const page = parseInt(req.query.page as string) || 1;
-    const limit = parseInt(req.query.limit as string) || 10;
-    const skip = (page - 1) * limit;
+    // // Default pagination values
+    // const page = parseInt(req.query.page as string) || 1;
+    // const limit = parseInt(req.query.limit as string) || 10;
+    // const skip = (page - 1) * limit;
 
-    // Fetch paginated data
-    const [movieTVList, total] = await Promise.all([
-      prisma.movieTV.findMany({
-        skip,
-        take: limit,
-        orderBy: { createdAt: "desc" }, // optional sorting
-      }),
-      prisma.movieTV.count(),
-    ]);
+    // // Fetch paginated data
+    // const [movieTVList, total] = await Promise.all([
+    //   prisma.movieTV.findMany({
+    //     skip,
+    //     take: limit,
+    //     orderBy: { createdAt: "desc" }, // optional sorting
+    //   }),
+    //   prisma.movieTV.count(),
+    // ]);
 
-    res.json({
-      data: movieTVList,
-      meta: {
-        page,
-        limit,
-        total,
-        totalPages: Math.ceil(total / limit),
-      },
-    });
+    // res.json({
+    //   data: movieTVList,
+    //   meta: {
+    //     page,
+    //     limit,
+    //     total,
+    //     totalPages: Math.ceil(total / limit),
+    //   },
+    // });
+    return res.status(201).json({ status: 200, message: "success" });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Failed to fetch movieTV list" });

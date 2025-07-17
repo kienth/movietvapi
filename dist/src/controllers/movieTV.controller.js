@@ -8,10 +8,9 @@ const prisma_1 = __importDefault(require("../prisma"));
 // CREATE
 const createMovieTV = async (req, res) => {
     try {
-        // const newData = await prisma.movieTV.create({ data: req.body });
-        // console.log("✅ Created:", newData); // ✅ Should be printed
-        // return res.status(201).json(newData);
-        return res.status(201).json({ status: 200, message: "success" });
+        const newData = await prisma_1.default.movieTV.create({ data: req.body });
+        console.log("✅ Created:", newData); // ✅ Should be printed
+        return res.status(201).json(newData);
     }
     catch (error) {
         console.error("❌ Error creating movieTV:", error);
@@ -25,28 +24,29 @@ exports.createMovieTV = createMovieTV;
 // READ ALL
 const getAllMovieTV = async (req, res) => {
     try {
-        // Default pagination values
-        const page = parseInt(req.query.page) || 1;
-        const limit = parseInt(req.query.limit) || 10;
-        const skip = (page - 1) * limit;
-        // Fetch paginated data
-        const [movieTVList, total] = await Promise.all([
-            prisma_1.default.movieTV.findMany({
-                skip,
-                take: limit,
-                orderBy: { createdAt: "desc" }, // optional sorting
-            }),
-            prisma_1.default.movieTV.count(),
-        ]);
-        res.json({
-            data: movieTVList,
-            meta: {
-                page,
-                limit,
-                total,
-                totalPages: Math.ceil(total / limit),
-            },
-        });
+        // // Default pagination values
+        // const page = parseInt(req.query.page as string) || 1;
+        // const limit = parseInt(req.query.limit as string) || 10;
+        // const skip = (page - 1) * limit;
+        // // Fetch paginated data
+        // const [movieTVList, total] = await Promise.all([
+        //   prisma.movieTV.findMany({
+        //     skip,
+        //     take: limit,
+        //     orderBy: { createdAt: "desc" }, // optional sorting
+        //   }),
+        //   prisma.movieTV.count(),
+        // ]);
+        // res.json({
+        //   data: movieTVList,
+        //   meta: {
+        //     page,
+        //     limit,
+        //     total,
+        //     totalPages: Math.ceil(total / limit),
+        //   },
+        // });
+        return res.status(201).json({ status: 200, message: "success" });
     }
     catch (error) {
         console.error(error);
